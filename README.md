@@ -3,37 +3,38 @@
 ...or, more specifically, all of the code powering
 [jsbeautifier.org](http://jsbeautifier.org/).
 
-This little beautifier will reformat and reindent bookmarklets, ugly
-JavaScript, unpack scripts packed by Dean Edward’s popular packer,
-as well as deobfuscate scripts processed by
-[javascriptobfuscator.com](http://javascriptobfuscator.com/).
+This is a node implementation of jsbeautifier.  
 
-To beautify from the command-line you can use provided python script/library.
+###Install
 
-`./js-beautify file.js` beautifies a file, output goes to `stdout`.
-
-To use `jsbeautifier` as a library is simple:
-
-``` python
-import jsbeautifier
-res = jsbeautifier.beautify('your javascript string')
-res = jsbeautifier.beautify_file('some_file.js')
+``` 
+npm install -g jsbeautify
 ```
 
-...or, to specify some options:
+###Usage
 
-``` python
-opts = jsbeautifier.default_options()
-opts.indent_size = 2
-res = jsbeautifier.beautify('some javascript', opts)
+``` 
+jsbeautify [options] [input file] [output file]
+
+Eg:
+
+jsbeautify minifiy.js ../lib/main.js 
+
 ```
 
-You are free to use this in any way you want, in case you find this
-useful or working for you.
+###Options
+``` 
+indent_size - Indentation size,
+indent_char: Character to indent with,
+preserve_newlines: Whether existing line breaks should be preserved,
+preserve_max_newlines: Maximum number of line breaks to be preserved in one chunk,
+jslint_happy: If true, then jslint-stricter mode is enforced,
+brace_style: "collapse" | "expand" | "end-expand" | "expand-strict" - put braces on the same line as control statements (default), or put braces on own line (Allman / ANSI style), or just put end braces on own line.,
+space_before_conditional: Should the space before conditional statement be added, "if(true)" vs "if (true)"
 
-Written by Einar Lielmanis, <einar@jsbeautifier.org>
-Python version flourished by Stefano Sanfilippo <a.little.coder@gmail.com>
+```
 
-Thanks to Jason Diamond, Patrick Hof, Nochum Sossonko, Andreas Schneider, Dave
-Vasilevsky, Vital Batmanov, Ron Baldwin, Gabriel Harrison, Chris J. Shull,
-Mathias Bynens and others.
+### Links
+[jsbeautifier.org](http://jsbeautifier.org/)
+[jsbeautifier.org github](https://github.com/einars/js-beautify)
+[node jsbeautify](http://decodize.com/jsbeautify)
